@@ -2,14 +2,11 @@ package com.example.re_stats_android;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.app.FragmentManager;
 
 import android.os.Bundle;
 
-import com.example.re_stats_android.framents.authent.AuthentFragment;
-import com.example.re_stats_android.framents.authent.LoginFragment;
+import com.example.re_stats_android.fragments.authent.AuthentFragment;
+import com.example.re_stats_android.fragments.authent.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
     AuthentFragment authentFragment;

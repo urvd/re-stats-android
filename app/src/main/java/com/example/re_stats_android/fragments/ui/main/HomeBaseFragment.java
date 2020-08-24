@@ -1,4 +1,4 @@
-package com.example.re_stats_android.framents.ui.main;
+package com.example.re_stats_android.fragments.ui.main;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -12,7 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.re_stats_android.framents.R;
+import com.example.re_stats_android.R;
+import com.example.re_stats_android.fragments.R;
 
 public class HomeBaseFragment extends Fragment {
 

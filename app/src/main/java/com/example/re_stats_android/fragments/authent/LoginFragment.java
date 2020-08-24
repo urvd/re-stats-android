@@ -1,4 +1,4 @@
-package com.example.re_stats_android.framents.authent;
+package com.example.re_stats_android.fragments.authent;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -15,10 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.example.re_stats_android.HomeActivity;
-import com.example.re_stats_android.MainActivity;
+import com.example.re_stats_android.HomeBaseActivity;
 import com.example.re_stats_android.R;
 import com.example.re_stats_android.models.UserModel;
 
@@ -83,7 +81,7 @@ public class LoginFragment extends Fragment {
     public void onStart() {
         super.onStart();
         if (mViewModel.isEqualToMock()) {
-            intent = new Intent(getActivity(), HomeActivity.class);
+            intent = new Intent(getActivity(), HomeBaseActivity.class);
             startActivity(intent);
         }
     }

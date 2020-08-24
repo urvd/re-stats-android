@@ -1,4 +1,4 @@
-package com.example.re_stats_android.framents.authent;
+package com.example.re_stats_android.fragments.authent;
 
 import android.os.Bundle;
 

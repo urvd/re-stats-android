@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.re_stats_android.framents.ui.main.HomeBaseFragment;
+import com.example.re_stats_android.fragments.ui.main.HomeBaseFragment;
 
 public class HomeBaseActivity extends AppCompatActivity {
 
