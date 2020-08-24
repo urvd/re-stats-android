@@ -1,4 +1,4 @@
-package com.example.re_stats_android.framents.authent;
+package com.example.re_stats_android.fragments.ui.main;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -13,25 +13,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.re_stats_android.R;
+import com.example.re_stats_android.fragments.R;
 
-public class LoginFragment extends Fragment {
+public class HomeBaseFragment extends Fragment {
 
-    private LoginViewModel mViewModel;
+    private MainViewModel mViewModel;
 
-    public static LoginFragment newInstance() {
-        return new LoginFragment();
+    public static HomeBaseFragment newInstance() {
+        return new HomeBaseFragment();
     }
 
+    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.login_fragment, container, false);
+        return inflater.inflate(R.layout.home_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         // TODO: Use the ViewModel
     }
 

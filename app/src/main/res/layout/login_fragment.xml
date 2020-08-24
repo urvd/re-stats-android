@@ -3,7 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".framents.authent.LoginFragment">
+    tools:context=".fragments.authent.LoginFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="150px"
+        android:layout_marginRight="150px"
+        android:layout_marginTop="150px"
+        android:layout_marginBottom="150px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/maintitle"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:layout_marginTop="120px"
+            android:layout_marginRight="100px"
+            android:layout_marginLeft="100px"
+            android:text="Login"
+            android:textSize="80px"
+            />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_below="@id/maintitle"
+            android:layout_height="110px"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="300px"
+            android:layout_marginRight="150px"
+            android:hint="Username"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:layout_marginLeft="150px"
+            android:layout_marginTop="100px"
+            android:layout_marginRight="150px"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/validate"
+            android:layout_width="match_parent"
+            android:layout_below="@id/password"
+            android:layout_height="100px"
+            android:layout_marginTop="110px"
+            android:layout_marginLeft="250px"
+            android:layout_marginRight="250px"
+            android:text="Valider"
+            android:textSize="45px"
+            android:textAlignment="center"
+            />
+        <Button
+            android:id="@+id/inscrip_redirect"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            android:text="S'inscrire"
+            android:layout_below="@id/validate"
+            android:layout_marginTop="120px"
+            android:layout_marginLeft="100px"
+            android:layout_marginRight="450px"
+            android:textSize="35px"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+
+            />
+
+    </LinearLayout>
 
 </FrameLayout>
