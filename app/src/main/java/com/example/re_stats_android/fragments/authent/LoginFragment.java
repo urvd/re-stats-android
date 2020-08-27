@@ -20,6 +20,9 @@ import com.example.re_stats_android.HomeBaseActivity;
 import com.example.re_stats_android.R;
 import com.example.re_stats_android.models.UserModel;
 
+import static com.example.re_stats_android.communs.CommunValues.ButtonGriser;
+import static com.example.re_stats_android.communs.CommunValues.ButtonSubmit;
+
 public class LoginFragment extends Fragment {
 
     private LoginViewModel mViewModel;
@@ -27,7 +30,6 @@ public class LoginFragment extends Fragment {
     private EditText password;
     private Button btn_login;
     private Button btn_redirect_inscrip;
-    Intent intent;
 
 /*    public LoginFragment() {
 
@@ -49,6 +51,11 @@ public class LoginFragment extends Fragment {
         username = view.findViewById(R.id.username);
         password = view.findViewById(R.id.password);
         btn_login = view.findViewById(R.id.validate);
+        if(submitRequirement()) {
+            btn_login.setBackgroundColor(ButtonSubmit);
+        } else {
+            btn_login.setBackgroundColor(ButtonGriser);
+        }
         btn_redirect_inscrip = view.findViewById(R.id.inscrip_redirect);
         onActivityCreated(savedInstanceState);
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -78,22 +85,32 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (mViewModel.isEqualToMock()) {
-            intent = new Intent(getActivity(), HomeBaseActivity.class);
-            startActivity(intent);
+    public void onResume() {
+        super.onResume();
+        if(submitRequirement()) {
+            btn_login.setBackgroundColor(ButtonSubmit);
+        } else {
+            btn_login.setBackgroundColor(ButtonGriser);
         }
     }
 
+    /*    @Override
+        public void onStart() {
+            super.onStart();
+            if (mViewModel.isEqualToMock()) {
+                startActivity(new Intent(getActivity(), HomeBaseActivity.class));
+            }
+        }*/
+    boolean submitRequirement(){
+        return (username.getText().toString() != null || !username.getText().toString().isEmpty())
+                && (password.getText().toString() != null || !password.getText().toString().isEmpty());
+    }
+
     void isConnecting(String usr, String psw){
-        if(usr == "user" && psw == "user") {
+        if(usr.equals("user") && psw.equals("user")) {
             mViewModel.getUserState().setUsername(usr);
             mViewModel.getUserState().setPassword(psw);
-            intent = new Intent(getActivity(), HomeActivity.class);
-            startActivity(intent);
-        } else {
-            btn_login.setBackgroundColor(Color.GRAY);
+            startActivity(new Intent(getActivity(), HomeBaseActivity.class));
         }
     }
 

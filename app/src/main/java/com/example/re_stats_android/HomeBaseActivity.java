@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.example.re_stats_android.fragments.ui.main.HomeBaseFragment;
 
 public class HomeBaseActivity extends AppCompatActivity {
-
+    Object ins;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

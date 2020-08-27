@@ -4,4 +4,26 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeBaseActivity" />
+    tools:context=".HomeBaseActivity" >
+
+    <TextView
+        android:id="@+id/slideframe_left"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginRight="310dp"
+        android:layout_marginTop="300dp"
+        android:textIsSelectable="true"
+        android:text="<<<Menu"
+        style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+        />
+    <TextView
+        android:id="@+id/slideframe_right"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="300dp"
+        android:textIsSelectable="true"
+        android:text=">>>"
+        style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+        />
+</FrameLayout>
