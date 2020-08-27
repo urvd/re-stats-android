@@ -8,6 +8,9 @@ public class CommunValues {
     public static final String ARG_PARAM2 = "CLUBS";
     public static final String ARG_PARAM3 = "PLAYERS";
 
+    static final int FRAME_HOME_ASKS = 0;
+    static final int FRAME_HOME_TASKS = 1;
+
     //validation
     public static final int ButtonGriser = Color.GRAY;
     public static final int ButtonSubmit = Color.GREEN;

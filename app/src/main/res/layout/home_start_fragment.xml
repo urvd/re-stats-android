@@ -4,7 +4,7 @@
     android:id="@+id/home_base"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context="fragments.ui.main.HomeBaseFragment">
+    tools:context=".fragments.ui.main.HomeStartFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,6 +38,13 @@
             android:layout_marginTop="50px"
             android:layout_below="@id/btn_see_clubs"
             android:text="Stats par Joueurs"/>
+
+        <include
+            android:id="@+id/slideframe_right"
+            layout="@layout/nav_slider_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="330dp"/>
 
         <FrameLayout
             android:id="@+id/frame_home"
