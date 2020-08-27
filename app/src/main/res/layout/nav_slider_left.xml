@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginRight="330dp"
+    android:layout_marginTop="300dp"
+    android:text=" Menu"
+    android:textSize="12sp"
+    android:textAlignment="textStart"
+    style="@style/ShapeAppearance.MaterialComponents.SmallComponent"
+    >
+</Button>
