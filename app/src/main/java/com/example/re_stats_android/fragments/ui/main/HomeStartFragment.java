@@ -17,10 +17,13 @@ import android.widget.Button;
 import com.example.re_stats_android.R;
 import com.example.re_stats_android.fragments.ui.FragmentSliderImpl;
 import com.example.re_stats_android.fragments.ui.tasks.TaskFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM1;
-import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM2;
-import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM3;
+import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_LEAGUES;
+import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_CLUBS;
+import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_PLAYERS;
+import static com.example.re_stats_android.communs.CommunValues.USER_BASE_MAIL;
 
 public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
 
@@ -48,6 +51,8 @@ public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
         ask_leagues = view.findViewById(R.id.btn_see_leagues);
         ask_clubs = view.findViewById(R.id.btn_see_clubs);
         ask_players = view.findViewById(R.id.btn_see_player);
+
+
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction().add(R.id.frame_home, FormFragment.newInstance(""))
                     .replace(R.id.frame_home, FormFragment.newInstance(""))
@@ -65,29 +70,33 @@ public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
         ask_leagues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mViewModel.formViewKey = ARG_PARAM_LEAGUES;
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.frame_home, FormFragment.newInstance(ARG_PARAM1))
+                        .replace(R.id.frame_home, FormFragment.newInstance(ARG_PARAM_LEAGUES))
                         .commitNow();
-                form_asked = ARG_PARAM1;
+                //form_asked = ARG_PARAM_LEAGUES;
+
             }
         });
 
         ask_clubs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mViewModel.formViewKey = ARG_PARAM_CLUBS;
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.frame_home, FormFragment.newInstance(ARG_PARAM2))
+                        .replace(R.id.frame_home, FormFragment.newInstance(ARG_PARAM_CLUBS))
                         .commitNow();
-                form_asked = ARG_PARAM2;
+                //form_asked = ARG_PARAM_CLUBS;
             }
         });
         ask_players.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mViewModel.formViewKey = ARG_PARAM_PLAYERS;
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.frame_home, FormFragment.newInstance(ARG_PARAM3))
+                        .replace(R.id.frame_home, FormFragment.newInstance(ARG_PARAM_PLAYERS))
                         .commitNow();
-                form_asked = ARG_PARAM3;
+                //form_asked = ARG_PARAM_PLAYERS;
             }
         });
         return view;
@@ -97,7 +106,8 @@ public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-        mViewModel.formViewKey = form_asked;
+
+        if(mViewModel.formViewKey == null) mViewModel.formViewKey = "Default";
     }
 
     //FragmentSliderImpl interface
