@@ -10,10 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.re_stats_android.R;
 import com.example.re_stats_android.fragments.ui.FragmentSliderImpl;
 import com.example.re_stats_android.fragments.ui.main.HomeStartFragment;
+
+import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_ACCOUNT;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,6 +48,7 @@ public class TaskFragment extends Fragment implements FragmentSliderImpl {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         sliderLeft = view.findViewById(R.id.slideframe_left);
         //sliderRight

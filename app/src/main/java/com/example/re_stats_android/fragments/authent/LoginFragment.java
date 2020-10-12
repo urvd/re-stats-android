@@ -2,8 +2,8 @@ package com.example.re_stats_android.fragments.authent;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,11 +15,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.re_stats_android.HomeBaseActivity;
 import com.example.re_stats_android.R;
+import com.example.re_stats_android.models.IUser;
 import com.example.re_stats_android.models.UserModel;
+import com.example.re_stats_android.provider.AuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
 
+import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_ACCOUNT;
+import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_ACCOUNT_ID;
 import static com.example.re_stats_android.communs.CommunValues.ButtonGriser;
 import static com.example.re_stats_android.communs.CommunValues.ButtonSubmit;
 
@@ -28,8 +34,14 @@ public class LoginFragment extends Fragment {
     private LoginViewModel mViewModel;
     private EditText username;
     private EditText password;
-    private Button btn_login;
+    private Button btn_valid;
     private Button btn_redirect_inscrip;
+    Activity activity;
+    IUser userProvider;
+
+    private FirebaseAuth mAuth;
+//    FirebaseDatabase database;
+//    DatabaseReference ref;
 
 /*    public LoginFragment() {
 
@@ -45,23 +57,50 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        userProvider = new AuthProvider();
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
         username = view.findViewById(R.id.username);
         password = view.findViewById(R.id.password);
-        btn_login = view.findViewById(R.id.validate);
+        btn_valid = view.findViewById(R.id.validate);
+        mAuth = FirebaseAuth.getInstance();
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //DatabaseReference myRef = database.getReference("users");
+
         if(submitRequirement()) {
-            btn_login.setBackgroundColor(ButtonSubmit);
+            btn_valid.setBackgroundColor(ButtonSubmit);
         } else {
-            btn_login.setBackgroundColor(ButtonGriser);
+            btn_valid.setBackgroundColor(ButtonGriser);
         }
         btn_redirect_inscrip = view.findViewById(R.id.inscrip_redirect);
-        onActivityCreated(savedInstanceState);
-        btn_login.setOnClickListener(new View.OnClickListener() {
+
+        btn_valid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isConnecting(username.getText().toString(), password.getText().toString());
+                if(submitRequirement()) {
+                    userProvider.signInUser(getActivity(),
+                            UserModel.builder().username(username.getText().toString())
+                                    .password(password.getText().toString()).build());
+                    UserModel currentUser = userProvider.getCurrentUser();
+                    if(currentUser != null){
+
+
+                        Bundle args = new Bundle();
+                        args.putString(ARG_PARAM_ACCOUNT, currentUser.getUsername());
+                        args.putString(ARG_PARAM_ACCOUNT_ID, currentUser.getUid());
+                        startActivity(new Intent(activity, HomeBaseActivity.class), args);
+                    }else{
+                        Toast.makeText(getActivity(), "Authentication failed !",
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
 
@@ -87,31 +126,33 @@ public class LoginFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if(submitRequirement()) {
-            btn_login.setBackgroundColor(ButtonSubmit);
-        } else {
-            btn_login.setBackgroundColor(ButtonGriser);
-        }
     }
 
-    /*    @Override
-        public void onStart() {
-            super.onStart();
-            if (mViewModel.isEqualToMock()) {
-                startActivity(new Intent(getActivity(), HomeBaseActivity.class));
+    @Override
+    public void onStart() {
+        super.onStart();
+        userProvider = new AuthProvider();
+        if(userProvider.getCurrentUser() != null){
+            UserModel currentUser = userProvider.getCurrentUser();
+            if (currentUser != null) {
+
+                Bundle args = new Bundle();
+
+                args.putString(ARG_PARAM_ACCOUNT, currentUser.getUsername());
+                args.putString(ARG_PARAM_ACCOUNT_ID, currentUser.getUid());
+                startActivity(new Intent(getActivity(), HomeBaseActivity.class),args);
             }
-        }*/
+        }else{
+            Toast.makeText(getActivity(), "Re Authentication !",
+                    Toast.LENGTH_LONG).show();
+            //userProvider.signOutUser();
+        }
+    }
     boolean submitRequirement(){
         return (username.getText().toString() != null || !username.getText().toString().isEmpty())
                 && (password.getText().toString() != null || !password.getText().toString().isEmpty());
     }
 
-    void isConnecting(String usr, String psw){
-        if(usr.equals("user") && psw.equals("user")) {
-            mViewModel.getUserState().setUsername(usr);
-            mViewModel.getUserState().setPassword(psw);
-            startActivity(new Intent(getActivity(), HomeBaseActivity.class));
-        }
-    }
+
 
 }

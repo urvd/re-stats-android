@@ -9,7 +9,7 @@ public class LoginViewModel extends ViewModel {
     public boolean isEqualToMock(){
         return this.userState.getUsername() == "user"
                 && this.userState.getPassword() == "user"
-                && this.userState.getStatus();
+                && this.userState.isStatus();
 
     }
 
