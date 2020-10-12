@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="80dp"
+        android:layout_height="80dp">
+        <!--    //logo + nounn-->
+
+<!--        <include-->
+<!--            layout="@layout/identity_with_image"/>-->
+        <TextView
+            android:id="@+id/identity_name"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="0dp"
+            android:textAlignment="center" />
+        <TextView
+            android:id="@+id/MJ"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/MG"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="60dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/MN"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="90dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/MP"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/BM"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="25dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/BC"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="120dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/Diff"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="150dp"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/Total"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="180dp"
+            android:textAlignment="center"/>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

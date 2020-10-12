@@ -15,17 +15,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.re_stats_android.R;
-import com.example.re_stats_android.fragments.ui.FragmentSliderImpl;
+import com.example.re_stats_android.fragments.ui.tasks.FragmentSliderImpl;
 import com.example.re_stats_android.fragments.ui.tasks.TaskFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_LEAGUES;
 import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_CLUBS;
 import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_PLAYERS;
-import static com.example.re_stats_android.communs.CommunValues.USER_BASE_MAIL;
 
-public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
+public class HomeStartFragment extends Fragment {
 
     private MainViewModel mViewModel;
     Button ask_leagues;
@@ -58,14 +55,14 @@ public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
                     .replace(R.id.frame_home, FormFragment.newInstance(""))
                     .commit();
         }
-        sliderRight = view.findViewById(R.id.slideframe_right);
-
-        sliderRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFragment();
-            }
-        });
+//        sliderRight = view.findViewById(R.id.slideframe_right);
+//
+//        sliderRight.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openFragment();
+//            }
+//        });
 
         ask_leagues.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,11 +108,11 @@ public class HomeStartFragment extends Fragment implements FragmentSliderImpl {
     }
 
     //FragmentSliderImpl interface
-    @Override
-    public void openFragment() {
-        Fragment fragment = fragment = TaskFragment.newInstance();
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.frame_from_right_slider, R.anim.frame_to_left_slider);
-        transaction.replace(R.id.container,fragment).commit();
-    }
+//    @Override
+//    public void openFragment() {
+//        Fragment fragment = fragment = TaskFragment.newInstance(null,null);
+//        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.anim.frame_from_right_slider, R.anim.frame_to_left_slider);
+//        transaction.replace(R.id.container,fragment).commit();
+//    }
 }
