@@ -28,13 +28,14 @@ public class HomeBaseActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setCustomView(R.layout.toolbar_simple);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        Toast.makeText(this, "Authentication succes, welcome",
-                Toast.LENGTH_LONG).show();
+
 //        sliderLeft = findViewById(R.id.slideframe_left);
 //        sliderRight = findViewById(R.id.slideframe_right);
 
         if (savedInstanceState == null) {
             //sliderLeft.setVisibility(Color.TRANSPARENT);
+            Toast.makeText(this, "Authentication succes, welcome",
+                    Toast.LENGTH_LONG).show();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, HomeStartFragment.newInstance())
                     .commitNow();

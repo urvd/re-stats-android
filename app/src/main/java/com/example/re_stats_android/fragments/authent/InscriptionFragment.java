@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.re_stats_android.R;
+import com.example.re_stats_android.models.IUser;
+import com.example.re_stats_android.provider.AuthProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -36,6 +38,7 @@ public class InscriptionFragment extends Fragment {
     private EditText passwordConfirm;
     private Button btn_valid;
     FirebaseAuth mAuth;
+    IUser userAcount = new AuthProvider();
 
     public InscriptionFragment() {
     }
@@ -57,6 +60,7 @@ public class InscriptionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_inscription, container, false);
         username = view.findViewById(R.id.username);
         password = view.findViewById(R.id.password);
+        passwordConfirm = view.findViewById(R.id.confirm_password);
         btn_valid = view.findViewById(R.id.validate);
         mAuth = FirebaseAuth.getInstance();
 
@@ -65,6 +69,10 @@ public class InscriptionFragment extends Fragment {
             public void onClick(View v) {
                 if(submitRequiment()) {
                     signUpUser();
+                }else{
+                    Toast.makeText(getActivity(),
+                            "Check again please, sommething is not correct!",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -74,7 +82,8 @@ public class InscriptionFragment extends Fragment {
     private boolean submitRequiment(){
         return !username.getText().toString().isEmpty()
                 && !passwordConfirm.getText().toString().isEmpty()
-                && !password.getText().toString().isEmpty();
+                && !password.getText().toString().isEmpty()
+                && passwordConfirm.getText().toString().equals(password.getText().toString());
     }
 
     private void signUpUser() {
@@ -92,7 +101,7 @@ public class InscriptionFragment extends Fragment {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Authentication failed.",
+                            Toast.makeText(getActivity(), "Inscription failed, retry again or later!",
                                     Toast.LENGTH_SHORT).show();
                         }
 

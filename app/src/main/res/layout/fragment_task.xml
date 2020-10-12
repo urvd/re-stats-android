@@ -6,11 +6,13 @@
     tools:context=".fragments.ui.tasks.TaskFragment">
 
     <LinearLayout
+        android:id="@+id/task_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include
             android:id="@+id/slideframe_left"
             layout="@layout/nav_slider_left" />
+
     </LinearLayout>
 </ScrollView>

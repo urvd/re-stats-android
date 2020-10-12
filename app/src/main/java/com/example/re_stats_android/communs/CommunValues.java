@@ -7,6 +7,12 @@ public class CommunValues {
     public static final String ARG_PARAM_LEAGUES = "LEAGUES";
     public static final String ARG_PARAM_CLUBS = "CLUBS";
     public static final String ARG_PARAM_PLAYERS = "PLAYERS";
+    public static final String ARG_PARAM_TASK = "TASK";
+    public static final String FORM_SEASON = "seasons";
+    public static final String FORM_LEAGUES = "league";
+    public static final String FORM_CLUBS = "clubs";
+    public static final String FORM_PLAYERS = "player";
+
     public static final String ARG_PARAM_ACCOUNT = "USER";
     public static final String ARG_PARAM_ACCOUNT_ID = "ID";
     public  static  final String USER_BASE_MAIL = "@newmail.com";
