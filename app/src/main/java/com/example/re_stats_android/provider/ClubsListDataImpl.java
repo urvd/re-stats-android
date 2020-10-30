@@ -18,7 +18,7 @@ public class ClubsListDataImpl implements IClubsListManagment {
                                               List<ClubsModel> clubsList) {
         List<String> clubsListName = new ArrayList<>();
 
-        if(countryFilter!=null || !countryFilter.isEmpty()){
+        if(countryFilter!=null || !clubsList.isEmpty()){
             for (ClubsModel clubs: clubsList) {
                 if(clubs.getCountry().equals(countryFilter)) {
                     clubsListName.add(clubs.getName());

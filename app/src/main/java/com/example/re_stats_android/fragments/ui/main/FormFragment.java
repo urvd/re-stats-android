@@ -162,7 +162,6 @@ public class FormFragment extends Fragment {
                 if (spinnerPlayers.isEnabled()) {
                     getListOfPlayer();
                 }
-                ;
             }
 
             @Override
@@ -314,7 +313,6 @@ public class FormFragment extends Fragment {
                 for (DataSnapshot dataSnapshot : dataSnapshotes.getChildren()) {
                     clubs.add(dataSnapshot.getValue(ClubsModel.class));
                 }
-                ;
                 if (searchCaseClub == SearchCaseClub.CASE_GET_LIST_NOM) {
                     clubsListAdapter = new ArrayAdapter<String>(getActivity(),
                             android.R.layout.simple_spinner_item,
