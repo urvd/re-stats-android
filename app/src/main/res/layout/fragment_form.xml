@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_formplayer"
+    android:layout_width="match_parent"
+    android:layout_height="1100px"
+    tools:context=".fragments.ui.main.FormFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/framehome_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30px"
+        android:layout_marginBottom="160px"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        />
+    <Spinner
+        android:id="@+id/season_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@id/framehome_title"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"/>
+
+    <Spinner
+        android:id="@+id/leagues_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_below="@id/season_spinner"
+        />
+    <Spinner
+        android:id="@+id/clubs_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="220dp"
+        android:layout_below="@id/leagues_spinner"
+        />
+
+    <Spinner
+        android:id="@+id/players_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="290dp"
+        android:layout_below="@id/clubs_spinner"
+        />
+
+    <Button
+        android:id="@+id/submit_task"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/players_spinner"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="185dp"
+        android:text="Envoyer"
+        android:textAlignment="center"/>
+
+</FrameLayout>

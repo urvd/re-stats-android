@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.re_stats_android.R;
 import com.example.re_stats_android.communs.CommonCallImpl;
 import com.example.re_stats_android.communs.ICommonCall;
-import com.example.re_stats_android.fragments.ui.main.FormFragment;
 import com.example.re_stats_android.models.ClubsModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

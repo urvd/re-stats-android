@@ -1,6 +1,5 @@
 package com.example.re_stats_android.fragments.ui.main;
 
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -15,8 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.re_stats_android.R;
-import com.example.re_stats_android.fragments.ui.tasks.FragmentSliderImpl;
-import com.example.re_stats_android.fragments.ui.tasks.TaskFragment;
 
 import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_LEAGUES;
 import static com.example.re_stats_android.communs.CommunValues.ARG_PARAM_CLUBS;
